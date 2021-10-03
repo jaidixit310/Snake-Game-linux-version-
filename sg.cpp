@@ -1,4 +1,5 @@
 // This is a snake game
+// To start the game you first will have to enter a value. After doing this the game will start.
 #include <iostream>
 #include <ctime>
 #include <conio.h>
