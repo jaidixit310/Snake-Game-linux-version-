@@ -1,15 +1,16 @@
+// This is a snake game
 #include <iostream>
 #include <ctime>
 #include <conio.h>
 using namespace std;
 
 //Variable instantiation;
-bool finsihed;
-const int width = 60;
-const int height = 30;
-enum sDirection {Stop=0, Up, Down, Left, Right};
-sDirection dir;
-int x, y, fruitX, fruitY, score, tail, tailX[40], tailY[40];
+bool finsihed;// For checking is the game finished or not
+const int width = 60;// Marking the width of the map
+const int height = 30;// Marking the height of the map
+enum sDirection {Stop=0, Up, Down, Left, Right};// Various directions in which the snake can go
+sDirection dir;// The variable which will denote the direction of the snake
+int x, y, fruitX, fruitY, score, tail, tailX[40], tailY[40];// Variables for positioning the fruit, the score and his tail
 
 //Limit of game;
 int winlimit = 30;
@@ -18,14 +19,14 @@ void Setup()
 {
     // Instantiating different Variables for the game, basically setting up
     finsihed = false;
-    dir = Stop;
-    x = width/2;
-    y = height/2;
-    tail = 0;
-    srand(time(0));
+    dir = Stop;// Initial state of the snake
+    x = width/2;// Initial absicssa of the snake
+    y = height/2;// Initial ordinate of the snake
+    tail = 0;// Initial length of the tail
+    srand(time(0));// For random position of the fruit
     fruitX = rand()%width;
     fruitY = rand()%height;
-    score = 0;
+    score = 0;// Initial score in the game
 }
 
 
@@ -182,7 +183,7 @@ void Logic()
             break;
     }
 
-    // To stop the snake from getting mad, he sometimes(God knows) why starts eating himself, if he does this is game over
+    // To stop the snake from getting mad, he sometimes(God knows) why starts eating himself, if he does, this is game over
     for(int i=0; i<tail; i++)
     {
         if(x==tailX[i] && y==tailY[i])
